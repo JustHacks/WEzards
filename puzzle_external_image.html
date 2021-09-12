@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puzzle</title>
+  <meta name="description" content="Puzzle - Converting images to Puzzle">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="puzzleimg.css">
+  <script src="puzzleimg.js"></script>
+
+<header class="i">
+      <a href="/index.html"><b>CogniFit</b></a>
+      <div class="nav-links i">
+        <a href="/index.html">Home</a>
+        <a href="/cam.html">Cam</a>
+        <a href="/puzzle_external_image.html">Game</a>
+        <a href="/todo.html">Todo</a>
+      </div>
+  </header>
+  
+<style>
+
+body{
+  text-align: center;
+}
+
+h1 {
+  margin: 5px auto;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+blockquote {
+  text-align: left;
+}
+
+pre {
+  margin:1px 1px 9px 1px;
+  background:#fefebb;
+  font-size:15px; 
+  font-weight:bold;
+  text-align:left;
+  color:blue;
+  padding:3px 4px;
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Puzzle</h1>
+
+<div id="puz1" class="puzelm">Here it is added the canvas with the puzzle.</div>
+<script>
+//<![CDATA[
+//Creates a puzzle in the #puz1 element with an image from an external location
+//Having 5 columns and 4 rows. Setting canvas size: width=600 and height=450
+var puz1 = new PuzzleImg('puz1', '22728159.jpg', 5, 4, 600, 450);
+
+//rewrites the function that is called when the puzzle is completed
+//the "clicks" property contains the number of clicks
+puz1.solved = function(){
+  alert('Congratulations, you solved the puzzle in '+ puz1.clicks +' clicks');
+}
+// ]]>
+</script>
+
+<footer class="i">
+      Follow us for more updates
+      <ul>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter--v1.png" alt="Twitter"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" alt="GitHUb"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/discord-logo.png" alt="Discord"/>
+      </ul>
+    </footer>
+
+</body>
+</html>

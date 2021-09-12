@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CogniFit</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="cam.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="i">
+      <a href="/index.html"><b>CogniFit</b></a>
+      <!-- <img class="logo" src="" alt="CogniFit"> -->
+      <div class="nav-links i">
+        <a href="/index.html">Home</a>
+        <a href="/cam.html">Cam</a>
+        <a href="/puzzle_external_image.html">Game</a>
+        <a href="/todo.html">Todo</a>
+      </div>
+    </header>
+    <main>
+        <div class="cam">
+				<h1>Emotion Camera</h1>
+				<div class="camDisplay" id="webcam-container"></div>
+				<div class="labelContainer" id="label-container"></div>
+				<button type="button" onclick="init()" class="btn" id="startBtn">Start</button>
+			</div>
+      </main>
+  <div id="webcam-container"></div>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+  
+    const URL = "https://teachablemachine.withgoogle.com/models/fMXPLFQwJ/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the webcam image through the image model
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+             percentage = prediction[i].probability.toFixed(2)
+             percentage = percentage * 100
+          const classPrediction =
+                prediction[i].className + ": " + percentage + "%";
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+    }
+</script>
+<footer class="i">
+      Follow us for more updates
+      <ul>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter--v1.png" alt="Twitter"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" alt="GitHUb"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/discord-logo.png" alt="Discord"/>
+      </ul>
+    </footer>
+</body>
+</html>

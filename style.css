@@ -12,9 +12,10 @@
 :root{
   --white:#fff;
   --main: #8995FF;
-  --light: #FF89C2;
+  --light: rgb(243, 122, 180);
   /* 374153 */
   --bg: #1A202C;
+  --lbg: #2d374b;
 }
 
 body{
@@ -49,7 +50,30 @@ h1{
 }
 
 h2{
-  font-size: 1.5em;
+  font-size: 2em;
+  padding: 10px 0;
+  color: var(--light);
+}
+
+.btn{
+  color: var(--white);
+  display: inline-flex;
+  padding: 10px 20px;
+  background: var(--light);
+  margin: 20px 0;
+  cursor: pointer;
+  transition: .2s linear;
+  border-radius: 5px; 
+  border: none;
+  font-size: 18px;
+}
+
+.btn:hover{
+  box-shadow: 1px 2px 3px var(--main);
+}
+
+button:focus{
+  outline: none;
 }
 
 /* -------------- header -------------- */
@@ -61,17 +85,21 @@ header, footer{
   background: var(--main);
 }
 
-li{
+a{
   margin:0 10px;
-  list-style: none;
+  text-decoration: none;
   cursor: pointer;
+  color: var(--white);
+  transition: .2s linear;
 }
 
-header li:active{text-decoration: underline;}
+header a:hover{
+  text-decoration: underline;
+}
 
 /* -------------- hero -------------- */
 .hero{
-  height: 500px;
+  min-height: 500px;
   padding: 0 10px;
 }
 
@@ -86,8 +114,8 @@ header li:active{text-decoration: underline;}
 .info{max-width:500px;}
 
 
-/* -------------- about -------------- */
-.about{
+/* -------------- features -------------- */
+.features{
   margin: 150px auto;
   gap: 50px;
   padding: 10px;
@@ -96,9 +124,28 @@ header li:active{text-decoration: underline;}
 .o{
   text-align: center;
   padding-bottom: 3em;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .item{
   width: 300px;
-  padding: 10px;
+  height: 300px;
+  padding: 10px 20px;
+  margin: 20px;
+  gap: 10px;
+  background: var(--lbg);
+  border: solid 1px rgb(255, 255, 255, .5);
+  border-radius: 5px;
+}
+.item img{
+  height: 45px;
+  width: 45px;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  margin-top: 100px;
+  width: 100%;
 }
