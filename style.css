@@ -1,0 +1,104 @@
+/* -------------- global styling -------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+  --white:#fff;
+  --main: #8995FF;
+  --light: #FF89C2;
+  /* 374153 */
+  --bg: #1A202C;
+}
+
+body{
+  width: 100%;
+  min-height: 100vh;
+	height: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: var(--white);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.c{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+h2{
+  font-size: 1.5em;
+}
+
+/* -------------- header -------------- */
+
+header, footer{
+  height: 80px;
+  padding: 10px;
+  justify-content: space-evenly !important;
+  background: var(--main);
+}
+
+li{
+  margin:0 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+header li:active{text-decoration: underline;}
+
+/* -------------- hero -------------- */
+.hero{
+  height: 500px;
+  padding: 0 10px;
+}
+
+.bgsvg{
+  height: 800px;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: -1;
+}
+
+.info{max-width:500px;}
+
+
+/* -------------- about -------------- */
+.about{
+  margin: 150px auto;
+  gap: 50px;
+  padding: 10px;
+}
+
+.o{
+  text-align: center;
+  padding-bottom: 3em;
+}
+
+.item{
+  width: 300px;
+  padding: 10px;
+}
