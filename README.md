@@ -1,10 +1,13 @@
 # CogniFit 
 
 **CogniFit is a site helpe people with cognitive decline to get better, with its cool features.**
- 
+
 Cognitive impairment is when a person has trouble remembering, learning new things, concentrating, or making decisions that affect their everyday life. Cognitive impairment ranges from mild to severe. CogniFit is a website which aims to help people with cognitive decline and help them to prevent it with amazing features.
 
-## Features 
+![home](https://user-images.githubusercontent.com/47777673/133649649-c7f847d8-6cb4-4bbc-a1b8-5bddb7b40a1a.png)
+
+
+## Features ✨ 
 
 CogniFit's outstanding features assist you in preventing cognitive deterioration. The features incorporated are:
 
